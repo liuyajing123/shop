@@ -9,16 +9,16 @@
         </div>
         <div class="register">
             <div class="row">
-                <form class="col s12" action="{{url('index/login/do_register')}}"  method="post">
+                <form class="col s12" action="{{url("index/login/do_register")}}"  method="post">
                     @csrf
                     <div class="input-field">
-                        <input type="text" name="name" class="validate" placeholder="NAME" required>
+                        <input type="text" name="user_name" class="validate" placeholder="NAME" required>
                     </div>
                     <div class="input-field">
-                        <input type="password" name="password" placeholder="PASSWORD" class="validate" required>
+                        <input type="password" name="user_pwd" placeholder="PASSWORD" class="validate" required>
                     </div>
                     <div class="input-field">
-                        <input type="password" name="repwd" placeholder="RE_PASSWORD" class="validate" required>
+                        <input type="password" name="user_repwd" placeholder="RE_PASSWORD" class="validate" required>
                     </div>
                     <button class="btn button-default">REGISTER1</button>
                 </form>

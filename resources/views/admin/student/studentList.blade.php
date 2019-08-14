@@ -13,7 +13,6 @@
 <input type="submit" value="搜索">
 </form>
 </center>
-
 <center>
     <table border="1">
             <h1>学生列表</h1>

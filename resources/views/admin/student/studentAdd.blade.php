@@ -8,7 +8,7 @@
 </head>
 <body>
     <center>
-        <form method="get" action="{{url('admin/student/do_add')}}" >
+        <form method="post" action="{{url('admin/student/do_add')}}" >
         @csrf
         @if ($errors->any())
             <div class="alert alert-danger">

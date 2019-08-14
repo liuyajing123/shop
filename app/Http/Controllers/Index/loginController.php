@@ -18,11 +18,11 @@ class loginController extends Controller
         $data=$request->except(['_token']);
 //        dd($data);
         //laravel查询构造器切换数据库并查询
-        $user_info = DB::connection('mysql_shop')->table('user')->where(['name'=>$data['name'],'password'=>$data['password']])->first();
+        $user_info = DB::connection('mysql_shop')->table('qiehuan_user')->where(['user_name'=>$data['user_name'],'user_pwd'=>$data['user_pwd']])->first();
 //        dd($user_info);
         if(isset($user_info))
         {
-            $request->session()->put('name', $data['name']);
+            $request->session()->put('user_name', $data['user_name']);
             return view('admin/success')->with([
                 //跳转信息
                 'message'=>'你已经提交信息，请您耐心等待！',
@@ -44,9 +44,9 @@ class loginController extends Controller
 
     public function do_register(Request $request)
     {
-        $data=$request->except(['_token','repwd']);
+        $data=$request->except(['_token','user_repwd']);
 //        dd($data);
-        $result=DB::connection('mysql_shop')->table('user')->insert($data);
+        $result=DB::connection('mysql_shop')->table('qiehuan_user')->insert($data);
 
         if($result)
         {

@@ -15,14 +15,33 @@ class Login
      */
     public function handle($request, Closure $next)
     {
-        $result = $request->session()->has('username');
-        // dd($result);
-        if($result){
-            echo "登陆成功！";
+//        echo "这是前置中间件";
+//        echo "<br />";
+//        return $next($request);
+        /**
+         * 方法一   判断 Session 中是否存在某个值
+         */
+        if ($request->session()->has('user_name')) {
+//            echo "您的用户名为".session('user_name');
+//            echo "<br />";
+        }else{
+            return redirect('admin/login/login');
         }
+        /**
+         * 方法二   判断 Session 中是否存在某个值
+         */
+//        if(!$request->session()->exists('user_name')){
+//            return redirect('/login');
+//        }
+
         $response = $next($request);
-        echo 111;
+
+        // Perform action //这个不用管
+//        echo "<br />";
+//        echo "这是后置中间件";
         return $response;
-        // return $next($request);
+
     }
+
+
 }

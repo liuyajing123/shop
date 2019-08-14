@@ -9,7 +9,7 @@
 <body>
 @foreach($data as $v)
     <center>
-        <form action="{{url('admin/student/update')}}" >
+        <form action="{{url('admin/student/update')}}" method="post">
         <input type="hidden" name="id" value="{{$v->id}}">
         姓名：<input type="text" name="name" value="{{$v->name}}">
         年龄：<input type="text" name="age" value="{{$v->age}}">
